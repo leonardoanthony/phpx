@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+Options -Indexes
+
+<FilesMatch "\.(js|css)$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+</FilesMatch>
